@@ -1,6 +1,6 @@
 GOOGLE BOOK SEARCH APP (ATTEMPT)
 
-![App in Use](./src/book-search-attempt.gif)
+![App in Use](./src/APP GIF/book-search-attempt.gif)
 
 ## Table of Contents
 - [Introduction](#introduction)
