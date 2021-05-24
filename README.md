@@ -1,10 +1,36 @@
-# Getting Started with Create React App
+GOOGLE BOOK SEARCH APP (ATTEMPT)
+
+![App in Use](./src/book-search-attempt.gif)
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Install](#install)
+- [License](#license)
+- [Support](#support)
+- [Usage](#usage)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Introduction
+This is a google book search app in react!
 
-In the project directory, you can run:
+## Install
+If you want to access this application's code, you need to clone the repository and run "npm i"
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Support
+Please contact me if you want to collab or roast my code. Thanks.
+
+[GitHub](https://github.com/nivaniuc)
+
+[LinkedIn](https://www.linkedin.com/in/nicholas-ivaniuc-7074321a1/)
+
+## Usage
+
+After you have successfully installed the application, simply run:
+yarn start
 
 ### `yarn start`
 
