@@ -9,11 +9,17 @@ class Books extends Component {
             searchField: ''
         }
     }
+    //method a search field event
+    handleSearch = (e) => {
+        // console.log(e.target.value);
+        this.setState({ searchField: e.target.value })
+    }
 
     render() {
     return (
       <div>
-          <SearchArea />
+          {/* made the method above into a prop */}
+          <SearchArea handleSearch={this.handleSearch} />
       </div>
     );
   }
