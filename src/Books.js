@@ -21,10 +21,38 @@ class Books extends Component {
         })
     }
 
+    componentDidMount() {
+        request
+        .get("https://www.googleapis.com/books/v1/volumes")
+        .query({ q: this.state.searchField })
+        .then((data) => {
+            this.setState({ books: [...data.body.items] })
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        request
+        .get("https://www.googleapis.com/books/v1/volumes")
+        .query({ q: this.state.searchField })
+        .then((data) => {
+            console.log(data);
+            this.setState({ books: [...data.body.items] })
+        })
+    }
+
     //method a search field event
     handleSearch = (e) => {
         // console.log(e.target.value);
         this.setState({ searchField: e.target.value })
+    }
+
+    handleChange = (e) => {
+        this.setState({ searchField: e.target.value })
+    }
+
+    handleSort = (e) => {
+        this.setState({ sort: e.target.value});
     }
 
     render() {

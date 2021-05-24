@@ -15,3 +15,10 @@ header h1 {
   margin-left: 35px;
   font-weight: 300;
 }
+
+input:focus, 
+select:focus
+{
+    outline: none;
+}
+
