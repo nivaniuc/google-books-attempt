@@ -8,17 +8,9 @@ class Books extends Component {
         super(props);
         this.state = {
             books: [],
-            searchField: ''
+            searchField: '',
+            sort: ''
         }
-    }
-
-    searchBook = (e) => {
-        request
-        .get("https://www.googleapis.com/books/v1/volumes")
-        .query ({ q: this.state.searchField })
-        .then ((data) => {
-            this.setState({ books: [...data.body.items]})
-        })
     }
 
     componentDidMount() {
@@ -41,12 +33,6 @@ class Books extends Component {
         })
     }
 
-    //method a search field event
-    handleSearch = (e) => {
-        // console.log(e.target.value);
-        this.setState({ searchField: e.target.value })
-    }
-
     handleChange = (e) => {
         this.setState({ searchField: e.target.value })
     }
@@ -56,14 +42,30 @@ class Books extends Component {
     }
 
     render() {
-    return (
-      <div>
-          {/* made the method above into a prop */}
-          <SearchArea searchBook={this.searchBook} handleSearch={this.handleSearch} />
-          <BookList books={this.state.books} />
-      </div>
-    );
-  }
+        const filteredBooks = this.state.books.sort((a, b) => {
+            if(this.state.sort == 'Newest'){
+                console.log("in newest")
+                return parseInt(b.volumeInfo.publishedDate.substring(0, 4)) - parseInt(a.volumeInfo.publishedDate.substring(0, 4));
+            }
+            else if(this.state.sort == 'Oldest'){
+                return parseInt(a.volumeInfo.publishedDate.substring(0, 4)) - parseInt(b.volumeInfo.publishedDate.substring(0, 4));
+            }
+          
+          return;
+        })
+
+        return (
+            <div className="wrapper">
+                <SearchArea 
+                    data={this.state} 
+                    handleSubmit={this.handleSubmit} 
+                    handleChange={this.handleChange} 
+                    handleSort={this.handleSort}
+                />
+                <BookList books={filteredBooks}/>
+            </div>
+        );
+    }
 }
 
 export default Books;
